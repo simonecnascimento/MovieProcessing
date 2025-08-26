@@ -4,12 +4,12 @@
 clear all; clc; 
 
 % TODO --- Set the directory of where animal folders are located
-dataDir =  'D:\2photon\Simone\Simone_Macrophages\'; %  'D:\2photon\Simone\Simone_Macrophages\'; %  'D:\2photon\Simone\Simone_Vasculature\', D:\2photon\Anna
+dataDir =  'V:\2photon\Rodrigo\CSD_Vascular\'; %V:\2photon\Simone\Simone_Macrophages\'; %  'D:\2photon\Simone\Simone_Macrophages\'; %  'D:\2photon\Simone\Simone_Vasculature\', D:\2photon\Anna
 
 % Parse data table
 
 % TODO --- Set excel sheet
-dataSet = 'MacrophageBaseline_craniotomy'; %'Macrophage'; % 'AffCSD'; %  'Pollen'; 'Vasculature'; 'Astrocyte'; %  'Anatomy'; %  'Neutrophil_Simone'; %  'NGC'; % 'Neutrophil'; % 'Afferents'
+dataSet = 'Test103'; %'Macrophage'; %'MacrophageBaseline_craniotomy'; %'Macrophage'; % 'AffCSD'; %  'Pollen'; 'Vasculature'; 'Astrocyte'; %  'Anatomy'; %  'Neutrophil_Simone'; %  'NGC'; % 'Neutrophil'; % 'Afferents'
 [regParam, projParam] = DefaultProcessingParams(dataSet); % get default parameters for processing various types of data
 
 %regParam.method = 'translation';
@@ -17,7 +17,7 @@ dataSet = 'MacrophageBaseline_craniotomy'; %'Macrophage'; % 'AffCSD'; %  'Pollen
 regParam.name = 'translation'; %affine %translation
 
 % TODO --- Set data spreadsheet directory
-dataTablePath = 'R:\Levy Lab\2photon\ImagingDatasets_Simone_241017.xlsx';  %R:\Levy Lab\2photon\ImagingDatasets_Simone.xlsx
+dataTablePath = 'V:\2photon\Rodrigo\CSD_Vascular\RN110\ImagingDatasets_Rodrigo.xlsx'; %'R:\Levy Lab\2photon\ImagingDatasets_Simone.xlsx';  %R:\Levy Lab\2photon\ImagingDatasets_Simone.xlsx
 dataTable = readcell(dataTablePath, 'sheet',dataSet);  % 'NGC', 
 colNames = dataTable(1,:); 
 dataTable(1,:) = [];
@@ -31,7 +31,7 @@ dataTable(:,dataCol.date) = cellfun(@num2str, dataTable(:,dataCol.date), 'Unifor
 expt = cell(1,Nexpt); runInfo = cell(1,Nexpt); Tscan = cell(1,Nexpt); loco = cell(1,Nexpt); % Tcat = cell(1,Nexpt);
 
 % TODO --- Specify xPresent - row number(X) within excel sheet
-xPresent = 21; % [150:152]; 154; [156:157]; [170:171]; [173:175]
+xPresent = 17; % [150:152]; 154; [156:157]; [170:171]; [173:175]
 Npresent = numel(xPresent);
 overwrite = false;
 %% 

@@ -4,7 +4,7 @@
 clear; clc; close all; 
 
 % TODO --- Set the directory of your 'sbx' files
-mainDir = 'D:\2photon\Simone\Simone_Macrophages\Pf4Ai162-23\'; 
+mainDir = 'V:\2photon\Rodrigo\CSD_Vascular\RN110\RN110_250710_001'; 
 % add '\' to mainDir if it is not included
 if mainDir(end) ~= '\'
     mainDir(end+1) = '\';
@@ -40,7 +40,7 @@ for s = flip(1:numel(sbxPath)) %1:numel(sbxPath) % flip(1:numel(sbxPath))
     % Unpack the sbx file in the new subfolder - this function is for initial/basic analysis of the recordings
     [~,  newSBXpath] = FileFinder(subDir, 'type','sbx', 'keepExt',true);
     if ~tempInfo.optotune_used  %for 2D recording
-        WriteSbxPlaneTif(newSBXpath{1}, tempInfo, 1, 'dir',subDir, 'name',sbxName{s}, 'verbose',true, 'chan','both', 'binT',8, 'overwrite',false);  % tempStack =
+        WriteSbxPlaneTif(newSBXpath{1}, tempInfo, 1, 'dir',subDir, 'name',sbxName{s}, 'verbose',true, 'chan','both', 'binT',15, 'overwrite',false);  % tempStack =
         WriteSbxProjection(newSBXpath{1}, tempInfo, 'verbose',true, 'chan','both', 'monochrome',true, 'RGB',true, 'overwrite',false); % projPath, 
     else  %for 3D recording
         tempInfo = FixSBX(newSBXpath{1}, tempInfo, 'flip',flipZ, 'proj',true, 'overwrite',false);
